@@ -5,6 +5,8 @@ namespace ContasPagar.ViewModels
 {
     public class ContaPagarPost
     {
+        #region Atributo
+
         public string Nome { get; set; }
 
         public decimal ValorOriginal { get; set; }
@@ -12,6 +14,8 @@ namespace ContasPagar.ViewModels
         public DateTime DataVencimento { get; set; }
 
         public DateTime DataPagamento { get; set; }
+
+        #endregion
 
         public ContaPagar ToModel()
         {

@@ -4,6 +4,7 @@ namespace ContasPagar.ViewModels
 {
     public class ContaPagarList
     {
+        #region Construtor
         public ContaPagarList(string nome, decimal valorOriginal, decimal valorCorrigido, int diasAtraso, DateTime dataPagamento)
         {
             Nome = nome;
@@ -13,6 +14,9 @@ namespace ContasPagar.ViewModels
             DataPagamento = dataPagamento;
         }
 
+        #endregion
+
+        #region Atributos
         public string Nome { get; private set; }
 
         public decimal ValorOriginal { get; private set; }
@@ -23,5 +27,6 @@ namespace ContasPagar.ViewModels
 
         public DateTime DataPagamento { get; private set; }
 
+        #endregion
     }
 }

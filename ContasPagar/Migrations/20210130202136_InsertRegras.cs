@@ -19,7 +19,15 @@ namespace ContasPagar.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
+            migrationBuilder.DeleteData(
+            table: "Regras",
+            keyColumn: "Id",
+            keyValue: new object[,]
+            {
+                { "B749AB76-B17F-488D-928D-8A9025C4BC79"},
+                { "EF3D9B51-B237-4EB7-9D0E-40DF9DD303F9"},
+                { "06CEB4E8-B821-45C2-B007-9DDB2C95AAF8"}
+        });
         }
     }
 }

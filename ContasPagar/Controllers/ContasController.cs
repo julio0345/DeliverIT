@@ -28,16 +28,14 @@ namespace ContasPagar.Controllers
         }
 
         [HttpGet("")]
-        public async Task<ActionResult<IEnumerable<ContaPagarList>>> GetContasAPagar()
+        public async Task<ActionResult<IEnumerable<ContaPagarList>>> GetContasPagar()
         {
-            //var contas = await _context.ContaPagar.ToListAsync();
             var contas = await _contasService.RetornarListaContas();
-
             return Ok(contas);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ContaPagar>> GetContaAPagar(Guid id)
+        public async Task<ActionResult<ContaPagar>> GetContaPagar(Guid id)
         {
             var contaAPagar = await _context.ContaPagar.FindAsync(id);
 
@@ -50,7 +48,7 @@ namespace ContasPagar.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutContaAPagar(Guid id, ContaPagar contaAPagar)
+        public async Task<IActionResult> PutContaPagar(Guid id, ContaPagar contaAPagar)
         {
             if (id != contaAPagar.Id)
             {
@@ -79,7 +77,7 @@ namespace ContasPagar.Controllers
         }
 
         [HttpPost("")]
-        public async Task<ActionResult<ContaPagar>> PostContaAPagar(ContaPagarPost contaAPagar)
+        public async Task<ActionResult<ContaPagar>> PostContaPagar(ContaPagarPost contaAPagar)
         {
             var conta = await _contasService.AplicarRegras(contaAPagar);
 
@@ -87,11 +85,11 @@ namespace ContasPagar.Controllers
             await _context.SaveChangesAsync();
 
             //Padrão Rest
-            return CreatedAtAction("GetContaAPagar", new { id = conta.Id }, conta);
+            return CreatedAtAction("GetContaPagar", new { id = conta.Id }, conta);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ContaPagar>> DeleteContaAPagar(Guid id)
+        public async Task<ActionResult<ContaPagar>> DeleteContaPagar(Guid id)
         {
             var contaAPagar = await _context.ContaPagar.FindAsync(id);
             if (contaAPagar == null)

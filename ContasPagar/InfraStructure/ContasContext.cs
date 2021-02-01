@@ -11,7 +11,6 @@ namespace ContasPagar.InfraStructure
     {
         public ContasContext(DbContextOptions options) : base(options)
         {
-
         }
 
         public DbSet<ContaPagar> ContaPagar { get; set; }

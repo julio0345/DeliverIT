@@ -35,6 +35,7 @@ namespace ContasPagar
             });
 
             services.AddTransient<IContasService, ContasService>();
+            services.AddTransient<ICalculosService, CalculosService>();
 
             services.AddControllers();
             services.AddSwaggerGen();
@@ -52,7 +53,7 @@ namespace ContasPagar
 
             app.UseSwaggerUI(option => 
             {
-                option.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "API de contas a pagar");
+                option.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "API de Contas a Pagar");
             });
 
             app.UseHttpsRedirection();
@@ -65,8 +66,6 @@ namespace ContasPagar
             {
                 endpoints.MapControllers();
             });
-
-
         }
     }
 }
